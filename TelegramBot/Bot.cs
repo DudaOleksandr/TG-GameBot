@@ -1,21 +1,23 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using Telegram.Bot;
-using TelegramBot.Bunker;
 using TelegramBot.Bunker.Interfaces;
 using TelegramBot.Commands;
+using Microsoft.Extensions.Configuration;
 
 namespace TelegramBot {
-    public static class Bot {
-        
+    public static class Bot
+    {
         private static ITelegramBotClient _botClient;
         
         private static List<Command> _commandsList;
 
         public static readonly List<IBunkerGame> BunkerGames = new();
         
-        public static IReadOnlyList<Command> Commands => _commandsList.AsReadOnly();
+        public static IEnumerable<Command> Commands => _commandsList.AsReadOnly();
         
-        public static  ITelegramBotClient Get()
+        public static ITelegramBotClient Get(string telegramBotKey)
         {
             if(_botClient != null)
             {
@@ -29,8 +31,8 @@ namespace TelegramBot {
                 new JoinLobbyCommand(),
                 new StartBunkerCommand()
             };
-
-            _botClient = new TelegramBotClient(AppSettings.Key);
+           
+            _botClient = new TelegramBotClient(telegramBotKey);
             return _botClient;
         }
     }
