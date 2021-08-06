@@ -1,7 +1,5 @@
 ﻿using System;
-using System.IO;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Telegram.Bot;
 using Telegram.Bot.Args;
 
@@ -38,11 +36,9 @@ namespace TelegramBot
 
         private static string GetTgKey()
         {
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile(@"C:\Users\oleksandr.duda\RiderProjects\TG-GameBot\TelegramBot\appsettings.json");
-
-            Configuration = builder.Build();
+            Configuration = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .Build();
 
             return Configuration.GetSection("TelegramKey").Value;
         }

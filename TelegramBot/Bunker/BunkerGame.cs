@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using TelegramBot.Bunker.Enums;
 using TelegramBot.Bunker.Interfaces;
 using TelegramBot.Bunker.Models;
@@ -14,7 +13,7 @@ namespace TelegramBot.Bunker
         private readonly long _gameOwner;
 
         private readonly List<string> _bunkerPlayers = new();
-        private List<string> _bunkerHistories = new();
+        private readonly List<string> _bunkerHistories = new();
         private readonly List<long> _bunkerPlayersId = new();
 
         public BunkerGame(long gameOwner)
@@ -40,7 +39,7 @@ namespace TelegramBot.Bunker
                 _bunkerPlayersId.Add(playerId);
         }
         
-        public List<string> GetPlayers()
+        public IEnumerable<string> GetPlayers()
         {
             return _bunkerPlayers;
         }

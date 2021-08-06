@@ -10,7 +10,7 @@ namespace TelegramBot.Bunker.Interfaces
 
         public void AddPlayerId(long playerId);
         
-        public List<string> GetPlayers();
+        public IEnumerable<string> GetPlayers();
 
         public List<long> GetPlayersId();
 

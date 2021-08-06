@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using Telegram.Bot;
 using TelegramBot.Bunker.Interfaces;
 using TelegramBot.Commands;
-using Microsoft.Extensions.Configuration;
 
 namespace TelegramBot {
     public static class Bot

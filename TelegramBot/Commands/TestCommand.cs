@@ -6,7 +6,7 @@ namespace TelegramBot.Commands
 {
     public class TestCommand : Command
     {
-        public override string Name => "/hello";
+        protected virtual string Name => "/hello";
 
         public override async Task Execute(Message message, ITelegramBotClient client)
         {

@@ -1,16 +1,14 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Types;
-using TelegramBot.Bunker;
 using TelegramBot.Bunker.Interfaces;
 
 namespace TelegramBot.Commands
 {
     public class StartBunkerCommand : Command
     {
-        public override string Name => "/start_bunker";
+        protected virtual string Name => "/start_bunker";
         
         private static IBunkerGame _bunkerGame;
         public override async Task Execute(Message message, ITelegramBotClient client)

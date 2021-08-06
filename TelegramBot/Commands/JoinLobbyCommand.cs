@@ -8,7 +8,7 @@ namespace TelegramBot.Commands
 {
     public class JoinLobbyCommand : Command
     {
-        public override string Name => "/join_lobby";
+        protected virtual string Name => "/join_lobby";
         
         private static IBunkerGame _bunkerGame;
         public override async Task Execute(Message message, ITelegramBotClient client)

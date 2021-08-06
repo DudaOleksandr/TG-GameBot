@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Types;
@@ -10,7 +9,7 @@ namespace TelegramBot.Commands
 {
     public class CreateBunkerCommand : Command
     {
-        public override string Name => "/create_bunker";
+        protected virtual string Name => "/create_bunker";
         
         private static IBunkerGame _bunkerGame;
         
